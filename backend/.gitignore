@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 env
 .env
 node_modules/
@@ -89,3 +90,10 @@ keys/
 dist/
 docs/
 
+=======
+__pycache__
+env
+users/htmlcov/
+.env
+XDG_CACHE_HOME/*
+>>>>>>> Stashed changes
