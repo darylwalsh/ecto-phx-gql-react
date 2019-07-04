@@ -1,0 +1,49 @@
+{
+  "name": "getaways-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@absinthe/socket-apollo-link": "^0.2.1",
+    "@jumpn/utils-graphql": "^0.6.0",
+    "apollo-cache-inmemory": "^1.6.0",
+    "apollo-client": "^2.6.0",
+    "apollo-link-context": "^1.0.17",
+    "apollo-link-http": "^1.5.14",
+    "bootstrap": "^4.3.1",
+    "date-fns": "^2.0.0-alpha.27",
+    "graphql-tag": "^2.10.1",
+    "lodash.debounce": "^4.0.8",
+    "node-sass": "^4.12.0",
+    "phoenix": "^1.4.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.6",
+    "react-day-picker": "^7.3.0",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "react-star-rating-component": "^1.4.1",
+    "react-transition-group": "^4.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

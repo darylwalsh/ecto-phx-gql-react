@@ -1,0 +1,847 @@
+@import '_theme.scss';
+
+// @import "~bootstrap/scss/bootstrap";
+
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Optional
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/utilities/background";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/utilities/spacing";
+@import "~bootstrap/scss/utilities/display";
+@import "~bootstrap/scss/utilities/flex";
+@import "~bootstrap/scss/utilities/text";
+
+@import "~react-day-picker/lib/style";
+
+// @import url(//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
+body {
+	font-family: "Roboto", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+#content {
+	@extend .container;
+}
+
+button {
+	text-transform: uppercase;
+}
+
+a.button {
+	@extend .btn, .btn-lg, .btn-primary;
+	text-align: center;
+}
+
+.spinner {
+  font-size: 7rem;
+  text-align: center;
+}
+
+.warning {
+	color: $orange;
+	text-align: center;
+	font-size: 1.25rem;
+} 
+
+.errors {
+  color: $red;
+  margin: 1.5rem 0;
+	padding: 1.5rem;
+  background: white;
+	border: 1px dashed $red;
+	text-align: center;
+
+	h3 {
+		font-size: 1.75rem;
+		margin-bottom: 1rem;
+	}
+
+	ul {
+		list-style: none;
+		padding-left: 0;
+		margin-bottom: 0;
+
+		li {
+			.message {
+				font-weight: 600;
+			}
+		}
+	}
+
+	p {
+		text-align: center;
+		font-weight: 300;
+		font-size: 1.15rem;
+  }
+}
+
+.heading-1 {
+  font-size: 6rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.heading-2 {
+  font-size: 5.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.heading-3 {
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.heading-4 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.booking-calendar {
+	text-align: center;
+	margin: 1.5rem 0;
+}
+
+.more {
+	margin: 1.5rem;
+	text-align: center;
+	button {
+		@extend .btn, .btn-lg, .btn-outline-primary;
+		margin-top: 2rem;
+	}
+}
+
+/* Bookings Page */
+
+.bookings {
+
+	h1 {
+		text-align: center;
+		font-weight: 300;
+		margin-bottom: 2rem;
+	}
+
+	.booking {
+		margin: 2rem 0;
+		box-shadow: $box-shadowTight ;
+
+		.body {
+			border-top-right-radius: 0.3rem;
+			border-top-left-radius: 0.3rem;
+			border: 1px solid darken($off-white, 7%);
+			border-bottom: none;
+			padding: 1.75rem;
+
+			.columns {
+				@extend .row;
+			}
+		}
+
+		.footer {
+			font-size: 1.25rem;
+			font-weight: 300;
+			text-align: center;
+			border-bottom-right-radius: 0.3rem;
+			border-bottom-left-radius: 0.3rem;
+			border: 1px solid darken($off-white, 7%);
+			padding: 0.75rem 1rem;
+			background: darken($off-white, 3%);
+		}
+
+		.place {
+			@extend .col-md-4;
+			text-align: center;
+			
+			.name {
+				display: block;
+				margin-top: 1rem;
+				font-weight: 600;
+			}
+
+			img {
+				height: 150px;
+			}
+		}
+
+		.dates {
+			@extend .col-md-4;
+			text-align: center;
+			font-size: 1.15rem;
+
+			dl dd {
+				margin-bottom: 0.75rem;
+			}
+		}
+
+		.status {
+			@extend .col-md-4;
+			text-align: center;
+			margin-top: 1rem;
+			
+			.state {
+				letter-spacing: 1px;			
+				color: white;
+				padding: 4px 5px;
+				display: block;
+				font-weight: 300;
+				transform: rotate(-1deg) skew(-3deg);
+				font-size: 1rem;
+				text-shadow: $text-shadow;
+				text-transform: uppercase;
+
+				&.reserved {			
+					background: $green;
+				}
+
+				&.canceled {			
+					background: $red;
+				}
+			}
+
+			button {
+				@extend .btn, .btn-outline-secondary;
+				margin-top: 2rem;
+
+				&:hover {
+					background: #FEC107;
+					border-color: darken(#FEC107, 10%);
+				}
+			}
+		}
+	}
+}
+
+/* Home and Search Pages */
+
+.places {
+	@extend .row, .flex-card;
+}
+
+.flex-card > div > div.card {
+	height: calc(100% - 40px);
+	margin-bottom: 40px;
+}
+
+/* Cards */
+
+.card-column {
+	@extend .col-md-4;
+
+	.card {
+		box-shadow: $box-shadow;
+		text-align: center;
+
+		img {
+			@extend .card-img-top;
+			height: 225px;
+		}
+		
+		.card-body {
+			.name {
+				@extend .card-title;
+			}
+
+			.location {
+				@extend .card-subtitle;
+			}
+
+			.description {
+				@extend .card-text;
+				margin-top: 1.25rem;
+				font-size: 1.15rem;
+			}
+		}
+
+		.card-footer {
+		  .details {
+
+				@extend 
+					.d-flex, 
+					.justify-content-between, 
+					.align-items-center;
+
+				.maxGuests {
+					color: $muted-text;
+					font-weight: 600;
+				}
+
+				.price {
+					@extend .badge, .badge-pill;
+					background: $gray-400;
+					font-size: 1rem;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+
+/* Search Page */
+
+.search {
+	@extend .row;
+
+  .search-results {
+		@extend .col-md-9;
+		h5 {
+			text-align: center;
+			text-transform: uppercase;
+			color: #08B270;
+			margin-bottom: 1.5rem;
+			font-weight: 500;
+			margin-top: -1.5rem;
+		}
+	}
+	
+	.no-results {
+		width: 100%;
+		text-align: center;
+		margin: 2rem;
+		padding: 2rem;
+		background: white;
+		border: 1px solid $lighter-gray;
+		text-align: center;
+	}
+
+	.search-criteria {
+		@extend .col-md-3;
+
+		h4 {
+			margin-top: 1.5em;
+			color: $muted-text;
+			text-transform: uppercase;
+			font-size: 1.3rem;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		input {
+			@extend .form-control;
+		}
+
+		button {
+			@extend .btn, .btn-outline-primary;
+		}
+
+		.clear {
+			text-align: center;
+			margin-top: 2rem;
+			button {
+				@extend .btn, .btn-outline-secondary;
+			}
+		}
+
+		ul {
+			@extend .list-group;
+
+			li {
+				@extend .list-group-item;
+
+				.three-state-checkbox {
+					@extend .custom-control, .custom-checkbox;
+
+					input[type="checkbox"] {
+						@extend .custom-control-input;
+					}
+
+					label {
+						@extend .custom-control-label;
+					}
+				}
+			}
+		}
+
+		label {
+			display: block;
+		}
+	}
+}
+
+/* Sign In Page */
+
+form.signin,
+form.signup {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+	margin: auto;
+
+	h2, h3 {
+	  text-align: center;
+	}
+
+	h3 {
+		font-size: 1.35rem;
+	}
+
+	label {
+		margin-top: 1rem;
+		
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	fieldset {
+		margin-top: 1.5rem;
+	}
+
+	input {
+		@extend .form-control;
+	}
+
+	button {
+		@extend .btn, .btn-lg, .btn-primary, .btn-block;
+	}
+
+	.form-control {
+		position: relative;
+		box-sizing: border-box;
+		height: auto;
+		padding: 10px;
+		font-size: 16px;
+	}
+
+	.form-control:focus {
+    z-index: 2;
+	}
+	
+	input[type="text"], input[type="email"] {
+    margin-bottom: -1px;
+    // border-bottom-right-radius: 0;
+    // border-bottom-left-radius: 0;
+  }
+ 
+	input[type="password"] {
+    margin-bottom: 10px;
+    // border-top-left-radius: 0;
+    // border-top-right-radius: 0;
+  }
+}
+
+/* Place Page */
+
+.place {
+  @extend .container;
+
+	h1 {
+		text-align: center;
+		@extend .heading-3;
+	}
+
+	h2 {
+	  text-align: center;
+	}
+
+	.columns {
+		@extend .row;
+		margin-top: 3rem;
+	}
+
+	.image {
+		@extend .col-md-6;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			box-shadow: $box-shadow;
+		}
+	}
+
+	.details {
+		@extend .col-md-6;
+
+		ul {
+			margin: 2rem 0;
+			padding-left: 0;
+			list-style: none;
+
+			li {
+				padding: 0.25rem 0;
+				font-weight: 600;
+				font-size: 1.15rem;
+
+				i {
+					margin-right: 0.5rem;
+				}
+			}
+		}
+
+		p.description {
+		  font-size: 1.5rem;
+			font-weight: 400;
+		}
+
+		.maxGuests {
+			margin-top: 1.5rem;
+			font-size: 1.25rem;
+
+			i {
+				margin-right: 0.6rem;
+			}
+		}
+		
+		.price {
+			background: $orange;
+			color: white;
+			display: inline-block;
+			padding: 4px 5px;
+			font-weight: 300;
+			transform: rotate(-1deg) skew(-3deg);
+			margin: 0;
+			font-size: 2rem;
+			text-shadow: $text-shadow;
+		}
+	}
+
+	.reviews {
+		margin-top: 3rem;
+
+		h2 {
+			@extend .heading-4;
+			margin-bottom: 2rem;
+			text-align: left;
+		}
+
+		ul {
+			padding-left: 0;
+			list-style: none;
+
+			li {
+				margin-bottom: 3rem;
+				padding-left: 2rem;
+				border-left: 5px solid $lighter-gray;
+
+				i.fa-user {
+					margin-right: 0.5rem;
+				}
+
+				.dv-star-rating {
+					font-size: 1.75rem;
+				}
+
+				.user {
+					i {
+						font-size: 1.5rem;
+					}
+
+					.name {
+						margin-left: 0.25rem;
+						font-size: 1.4rem;
+						font-weight: 600;
+					}
+
+					.date {
+						margin-left: 0.5rem;
+						font-weight: 300;
+						font-size: 1.2rem;
+					}
+				}
+
+				p {
+					padding: 0.5rem 0;
+					font-size: 1.45rem;
+				}
+			}
+		}
+	}
+
+	.booking {
+		margin-top: 5rem;
+		text-align: center;
+
+		button {
+			@extend .btn, .btn-lg, .btn-primary;
+		}
+
+		.booking-totals {
+			font-size: 1.25rem;
+			margin: 1rem;
+			font-weight: 400;
+		}
+	}
+
+	form.review {
+		margin-top: 4rem;
+
+		fieldset {
+			padding: 2rem 4rem;
+			border: 1px solid $lighter-gray;
+		}
+
+		.comment {
+			@extend .form-group;
+		}
+
+		.rating {
+			@extend .form-group;
+		}
+		
+		textarea {
+			@extend .form-control;
+			padding: 1rem;
+			font-size: 1.25rem;
+		}
+
+		.dv-star-rating {
+			margin: 0;
+			font-size: 1.75rem;
+		}
+
+		button {
+			@extend .btn, .btn-lg, .btn-primary;
+		}
+	}
+}
+
+/* Header and Nav */
+
+header {
+	nav {
+		margin-bottom: 3rem;
+
+		@extend 
+			.navbar, 
+			.navbar-expand,
+			.navbar-dark,
+			.bg-dark;
+
+		a.button {
+			@extend .btn;
+		}
+
+		a.logo {
+			padding: 0.75rem 0 0.75rem 1rem;
+			font-size: 2rem;
+			@extend .navbar-brand;
+			text-transform: uppercase;
+			color: $primary;
+			letter-spacing: 3px;
+			background: linear-gradient(.25turn, $primary 55%, #08B270);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;			
+
+			.head {
+				font-weight: 600;
+			}
+
+			.tail {
+				font-weight: 300;
+			}
+		}
+
+		ul {
+			@extend .navbar-nav;
+			margin-left: auto;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+
+			
+			li {
+				@extend .nav-item;
+        margin-right: 10px;
+
+				a {
+				 @extend .nav-link;
+				 padding-bottom: 2px;
+				}
+
+				a:hover, 
+				a.active {
+					border-bottom: 1px solid $primary;
+				}
+
+				button, .btn {
+					margin-top: 2px;
+					background: transparent;
+					color: $off-white;
+					border: 1px solid;
+					padding: 6px 10px;
+					letter-spacing: 2px;
+					border-radius: 12px;
+					text-transform: uppercase;
+					cursor: pointer;
+				}
+
+				button:hover, .btn:hover {
+					background: $off-white;
+					color: $primary;
+					border-color: $primary;
+				}
+
+				button.signout {
+					border: none;
+				}
+
+				&.user {
+					color: #96a1aa; 
+					padding-top: 8px;
+					i {
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Footer */
+
+footer {
+  color: $light-gray;
+  text-align: center;
+  padding-top: 2rem;
+	padding-bottom: 2rem;
+
+	p {
+  	margin-bottom: 0.25rem;
+	}
+
+	a {
+ 		color: $light-gray;
+  	text-decoration: underline;
+	}
+}
+
+/* Animations */
+
+.fade-enter {
+	opacity: 0;
+}
+
+.fade-enter-active {
+	opacity: 1;
+  transition: all 1s ease-out;
+}
+
+/** 
+ * React Day Picker 
+ *
+ * Default styles: 
+ * https://github.com/gpbl/react-day-picker/blob/master/src/style.css
+ * 
+ */
+
+.DayPicker {
+	display: block;
+}
+
+.DayPicker-Month {
+	box-shadow: $box-shadow;
+}
+
+.DayPicker-NavButton {
+  color: $primary !important;
+}
+
+.DayPicker-Caption {
+	background: $lighter-gray;
+	text-align: center;
+	text-transform: uppercase;
+	color: $dark-gray;
+	font-size: 0.9rem;
+	letter-spacing: 1px;
+}
+
+.DayPicker-Day--today {
+	color: $orange;
+}
+
+.DayPicker-Day--outside {
+	color: #DCE0E0;
+	opacity: 0;
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+	background-color: $primary;
+	color: #F0F8FF;
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+	background-color: lighten($primary, 5%);
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+	background-color: #F0F8FF !important;
+	color: $primary;
+}
+
+.DayPicker-Day {
+	border-radius: 0 !important;
+}
+.DayPicker-Day--start {
+	border-top-left-radius: 50% !important;
+	border-bottom-left-radius: 50% !important;
+}
+.DayPicker-Day--end {
+	border-top-right-radius: 50% !important;
+	border-bottom-right-radius: 50% !important;
+}
+
+.DayPicker-Day--disabled {
+  color: $light-gray;
+	cursor: default;
+	text-decoration: line-through;
+  // background-color: #F0F8FF;
+}
+
+.DayPicker-Day {
+	border: 1px solid rgb(228, 231, 231);
+	padding: 0.6em;
+}
+
+.InputFromTo .input-group {
+	margin-bottom: 5px;
+}
+	
+.DayPickerInput {
+	display: flex;
+	flex: 1 1 auto;
+	align-items: stretch;
+	width: 1%;
+}
+
+.InputFromTo .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+    background-color: #f0f8ff !important;
+		color: #4a90e2;
+		color: $primary;
+  }
+  .InputFromTo .DayPicker-Day {
+    border-radius: 0 !important;
+  }
+  .InputFromTo .DayPicker-Day--start {
+    border-top-left-radius: 50% !important;
+    border-bottom-left-radius: 50% !important;
+  }
+  .InputFromTo .DayPicker-Day--end {
+    border-top-right-radius: 50% !important;
+    border-bottom-right-radius: 50% !important;
+  }
+  .InputFromTo .DayPickerInput-Overlay {
+    // width: 350px;
+  }
+  .InputFromTo-to .DayPickerInput-Overlay {
+    // margin-left: -198px;
+  }

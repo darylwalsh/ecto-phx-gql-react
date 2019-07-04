@@ -1,0 +1,25 @@
+$black: #393939;
+$off-white: #EDEDED;
+$dark-gray: #666;
+$light-gray: #96a1aa;
+$lighter-gray: #ccc;
+$bluish-gray: #6c757d;
+$light-green: #e7f9e2;
+$green: #a2be8c;
+$red: #be616a;
+$orange: #E8890C;
+$cyan: #17a2b8;
+
+$muted-text: #6c757d;
+
+$box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
+$box-shadowTight: 0 .25rem .75rem rgba(0, 0, 0, .09);
+$text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+
+// Bootstrap Overrides
+
+$body-color: $black;
+$body-bg: $off-white;
+$primary: $cyan;
+$secondary: $dark-gray;
+$card-border-radius: 0.3rem;
