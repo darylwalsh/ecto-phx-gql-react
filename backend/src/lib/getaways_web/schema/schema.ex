@@ -110,7 +110,7 @@ defmodule GetawaysWeb.Schema.Schema do
     field :end_date, non_null(:date)
     field :state, non_null(:string)
     field :total_price, non_null(:decimal)
-    field :place, non_null(:place), resolve: dataloader(Vacation)
+    field :place, non_null(:place), resolve: dataloader(Accounts)
     field :user, non_null(:user), resolve: dataloader(Vacation)
   end
 
@@ -119,7 +119,7 @@ defmodule GetawaysWeb.Schema.Schema do
     field :rating, non_null(:integer)
     field :comment, non_null(:string)
     field :inserted_at, non_null(:datetime)
-    field :place, non_null(:place), resolve: dataloader(Vacation)
+    field :place, non_null(:place), resolve: dataloader(Accounts)
     field :user, non_null(:user), resolve: dataloader(Vacation)
   end
 
@@ -135,7 +135,7 @@ defmodule GetawaysWeb.Schema.Schema do
   object :user do
     field :username, non_null(:string)
     field :email, non_null(:string)
-    field :bookings, list_of(:booking), 
+    field :bookings, list_of(:booking),
       resolve: dataloader(Vacation, :bookings, args: %{scope: :user})
   end
 

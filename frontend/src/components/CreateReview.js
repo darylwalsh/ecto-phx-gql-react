@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { Mutation } from "react-apollo";
 import Error from "./Error";
 import Loading from "../components/Loading";
-import CurrentUser from "../components/CurrentUser";
 import RatingSelector from "./custom-inputs/RatingSelector";
 import { GET_PLACE_QUERY } from "../pages/Place";
 
@@ -53,7 +52,7 @@ class CreateReview extends Component {
       variables: { slug: slug }
     });
 
-    // 2. Add the new review to beginning of list
+    // 2. Add the new review to beginning of array
     place.reviews.unshift(data.createReview);
 
     // 3. Write the updated place back to the cache
@@ -66,58 +65,48 @@ class CreateReview extends Component {
 
   render() {
     return (
-      <CurrentUser>
-        {currentUser => (
-          <>
-            {currentUser && (
-              <Mutation
-                mutation={CREATE_REVIEW_MUTATION}
-                variables={{
-                  ...this.state,
-                  placeId: this.props.place.id
-                }}
-                onCompleted={this.clearState}
-                update={this.handleUpdate}>
-                {(createReview, { loading, error }) => {
-                  if (loading) return <Loading />;
-                  return (
-                    <form
-                      className="review"
-                      onSubmit={e => {
-                        e.preventDefault();
-                        createReview();
-                      }}>
-                      <Error error={error} />
-                      <fieldset disabled={loading} aria-busy={loading}>
-                        <div className="comment">
-                          <label htmlFor="comment">Comment</label>
-                          <textarea
-                            name="comment"
-                            id="comment"
-                            placeholder="Your Comment..."
-                            required
-                            value={this.state.comment}
-                            onChange={this.handleCommentChange}
-                          />
-                        </div>
-                        <div className="rating">
-                          <RatingSelector
-                            rating={this.state.rating}
-                            onSelected={this.handleRatingSelected}
-                          />
-                        </div>
-                        <button type="submit" disabled={loading}>
-                          Post Review
-                        </button>
-                      </fieldset>
-                    </form>
-                  );
-                }}
-              </Mutation>
-            )}
-          </>
-        )}
-      </CurrentUser>
+      <Mutation
+        mutation={CREATE_REVIEW_MUTATION}
+        variables={{
+          ...this.state,
+          placeId: this.props.place.id
+        }}
+        onCompleted={this.clearState}
+        update={this.handleUpdate}>
+        {(createReview, { loading, error }) => {
+          if (loading) return <Loading />;
+          return (
+            <form
+              className="review"
+              onSubmit={e => {
+                e.preventDefault();
+                createReview();
+              }}>
+              <Error error={error} />
+              <fieldset>
+                <div className="comment">
+                  <label htmlFor="comment">Comment</label>
+                  <textarea
+                    name="comment"
+                    id="comment"
+                    placeholder="Your Comment..."
+                    required
+                    value={this.state.comment}
+                    onChange={this.handleCommentChange}
+                  />
+                </div>
+                <div className="rating">
+                  <RatingSelector
+                    rating={this.state.rating}
+                    onSelected={this.handleRatingSelected}
+                  />
+                </div>
+                <button type="submit">Post Review</button>
+              </fieldset>
+            </form>
+          );
+        }}
+      </Mutation>
     );
   }
 }
