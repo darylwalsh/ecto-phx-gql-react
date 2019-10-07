@@ -96,3 +96,4 @@ env
 users/htmlcov/
 .env
 XDG_CACHE_HOME/*
+.tool-versions

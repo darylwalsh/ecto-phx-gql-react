@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import gql from "graphql-tag";
-import { Mutation } from "react-apollo";
-import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
-import Error from "./Error";
-import Loading from "./Loading";
-import { GET_CURRENT_USER_QUERY } from "./CurrentUser";
+import React, { Component } from 'react'
+import gql from 'graphql-tag'
+import { Mutation } from 'react-apollo'
+import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
+import Error from './Error'
+import Loading from './Loading'
+import { GET_CURRENT_USER_QUERY } from './CurrentUser'
 
 const SIGNIN_MUTATION = gql`
   mutation SignIn($username: String!, $password: String!) {
@@ -16,35 +16,35 @@ const SIGNIN_MUTATION = gql`
       }
     }
   }
-`;
+`
 
 class SigninForm extends Component {
   state = {
-    username: "",
-    password: ""
-  };
+    username: '',
+    password: '',
+  }
 
   handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+    const { name, value } = event.target
+    this.setState({ [name]: value })
+  }
 
   isFormValid = event => {
-    return this.state.username.length > 0 && this.state.password.length > 0;
-  };
+    return this.state.username.length > 0 && this.state.password.length > 0
+  }
 
   handleCompleted = data => {
-    localStorage.setItem("auth-token", data.signin.token);
+    localStorage.setItem('auth-token', data.signin.token)
 
-    this.props.history.goBack();
-  };
+    this.props.history.goBack()
+  }
 
   handleUpdate = (cache, { data }) => {
     cache.writeQuery({
       query: GET_CURRENT_USER_QUERY,
-      data: { me: data.signin.user }
-    });
-  };
+      data: { me: data.signin.user },
+    })
+  }
 
   render() {
     return (
@@ -54,13 +54,13 @@ class SigninForm extends Component {
         onCompleted={this.handleCompleted}
         update={this.handleUpdate}>
         {(signin, { error, loading }) => {
-          if (loading) return <Loading />;
+          if (loading) return <Loading />
           return (
             <form
               className="signin"
               onSubmit={e => {
-                e.preventDefault();
-                signin();
+                e.preventDefault()
+                signin()
               }}>
               <h2>Sign In</h2>
               <h3>
@@ -92,11 +92,11 @@ class SigninForm extends Component {
                 </button>
               </fieldset>
             </form>
-          );
+          )
         }}
       </Mutation>
-    );
+    )
   }
 }
 
-export default withRouter(SigninForm);
+export default withRouter(SigninForm)

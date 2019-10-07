@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import gql from "graphql-tag";
-import PropTypes from "prop-types";
-import { Mutation } from "react-apollo";
-import Error from "./Error";
-import BookingTotals from "./BookingTotals";
-import BookingCalendar from "./custom-inputs/BookingCalendar";
-import { formatYYYYMMDD } from "../lib/helpers";
-import { GET_MY_BOOKINGS_QUERY } from "../pages/MyBookings";
+import React, { Component } from 'react'
+import gql from 'graphql-tag'
+import PropTypes from 'prop-types'
+import { Mutation } from 'react-apollo'
+import Error from './Error'
+import BookingTotals from './BookingTotals'
+import BookingCalendar from './custom-inputs/BookingCalendar'
+import { formatYYYYMMDD } from '../lib/helpers'
+import { GET_MY_BOOKINGS_QUERY } from '../pages/MyBookings'
 
 const CREATE_BOOKING_MUTATION = gql`
   mutation CreateBooking(
@@ -18,32 +18,32 @@ const CREATE_BOOKING_MUTATION = gql`
       id
     }
   }
-`;
+`
 
 class CreateBooking extends Component {
   static propTypes = {
-    place: PropTypes.object.isRequired
-  };
+    place: PropTypes.object.isRequired,
+  }
 
   state = {
     startDate: null,
-    endDate: null
-  };
+    endDate: null,
+  }
 
   handleDayClick = newDateRange => {
-    this.setState(newDateRange);
-  };
+    this.setState(newDateRange)
+  }
 
   clearState = () => {
-    this.setState({ startDate: null, endDate: null });
-  };
+    this.setState({ startDate: null, endDate: null })
+  }
 
   hasPickedDates = () => {
-    return this.state.startDate && this.state.endDate;
-  };
+    return this.state.startDate && this.state.endDate
+  }
 
   render() {
-    const { place } = this.props;
+    const { place } = this.props
 
     return (
       <Mutation
@@ -51,7 +51,7 @@ class CreateBooking extends Component {
         variables={{
           placeId: place.id,
           startDate: formatYYYYMMDD(this.state.startDate),
-          endDate: formatYYYYMMDD(this.state.endDate)
+          endDate: formatYYYYMMDD(this.state.endDate),
         }}
         onCompleted={this.clearState}
         refetchQueries={[{ query: GET_MY_BOOKINGS_QUERY }]}>
@@ -78,8 +78,8 @@ class CreateBooking extends Component {
           </div>
         )}
       </Mutation>
-    );
+    )
   }
 }
 
-export default CreateBooking;
+export default CreateBooking

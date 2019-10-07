@@ -1,5 +1,5 @@
 defmodule GetawaysWeb.AuthToken do 
-  @user_salt "user salt"
+  @user_salt "blpc phx ecto graphql react elixir"
   
   @doc """
   Encodes the given `user` id and signs it, returning a token

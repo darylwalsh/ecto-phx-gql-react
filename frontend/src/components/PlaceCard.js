@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { formatCurrency } from "../lib/helpers";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import { formatCurrency } from '../lib/helpers'
 
 const PlaceCard = ({ place }) => (
   <div className="card-column">
@@ -26,10 +26,10 @@ const PlaceCard = ({ place }) => (
       </div>
     </div>
   </div>
-);
+)
 
 PlaceCard.propTypes = {
-  place: PropTypes.object.isRequired
-};
+  place: PropTypes.object.isRequired,
+}
 
-export default PlaceCard;
+export default PlaceCard

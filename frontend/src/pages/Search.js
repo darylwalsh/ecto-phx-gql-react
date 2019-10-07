@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
-import Error from "../components/Error";
-import Loading from "../components/Loading";
-import PlaceList from "../components/PlaceList";
-import SearchCriteria from "../components/custom-inputs/SearchCriteria";
+import React, { Component } from 'react'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
+import Error from '../components/Error'
+import Loading from '../components/Loading'
+import PlaceList from '../components/PlaceList'
+import SearchCriteria from '../components/custom-inputs/SearchCriteria'
 
 const SEARCH_PLACES_QUERY = gql`
   query SearchPlaces($filter: PlaceFilter!) {
@@ -19,16 +19,16 @@ const SEARCH_PLACES_QUERY = gql`
       maxGuests
     }
   }
-`;
+`
 
 class Search extends Component {
   state = {
-    criteria: {}
-  };
+    criteria: {},
+  }
 
   handleCriteriaChange = criteria => {
-    this.setState({ criteria: criteria });
-  };
+    this.setState({ criteria: criteria })
+  }
 
   render() {
     return (
@@ -41,24 +41,24 @@ class Search extends Component {
           <Query
             query={SEARCH_PLACES_QUERY}
             variables={{
-              filter: this.state.criteria
+              filter: this.state.criteria,
             }}>
             {({ data, loading, error }) => {
-              if (loading) return <Loading />;
-              if (error) return <Error error={error} />;
+              if (loading) return <Loading />
+              if (error) return <Error error={error} />
 
               return (
                 <>
                   <h5>{data.places.length} Places Await...</h5>
                   <PlaceList places={data.places} />
                 </>
-              );
+              )
             }}
           </Query>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Search;
+export default Search

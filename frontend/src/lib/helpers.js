@@ -1,42 +1,42 @@
-import { differenceInDays, format, formatDistance, parseISO } from "date-fns";
+import { differenceInDays, format, formatDistance, parseISO } from 'date-fns'
 
 function formatCurrency(amount) {
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 0
-  });
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+  })
 
-  return formatter.format(amount);
+  return formatter.format(amount)
 }
 
 function formatYYYYMMDD(date) {
   if (!date) {
-    return null;
+    return null
   }
-  return format(toISO(date), "yyy-MM-dd");
+  return format(toISO(date), 'yyy-MM-dd')
 }
 
 function formatMonthDD(date) {
-  return format(toISO(date), "MMMM d");
+  return format(toISO(date), 'MMMM d')
 }
 
 function distanceInWordsFromNow(date) {
   return formatDistance(toISO(date), Date.now(), {
     addSuffix: true,
-    includeSeconds: true
-  });
+    includeSeconds: true,
+  })
 }
 
 function totalNights(from, to) {
-  return differenceInDays(toISO(to), toISO(from));
+  return differenceInDays(toISO(to), toISO(from))
 }
 
 function toISO(date) {
-  if (typeof date === "string") {
-    return parseISO(date);
+  if (typeof date === 'string') {
+    return parseISO(date)
   }
-  return date;
+  return date
 }
 
 export {
@@ -44,5 +44,5 @@ export {
   formatYYYYMMDD,
   formatMonthDD,
   distanceInWordsFromNow,
-  totalNights
-};
+  totalNights,
+}

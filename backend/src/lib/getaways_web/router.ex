@@ -15,6 +15,6 @@ defmodule GetawaysWeb.Router do
     forward "/graphiql", Absinthe.Plug.GraphiQL,
       schema: GetawaysWeb.Schema.Schema,
       socket: GetawaysWeb.UserSocket,
-      interface: :simple
+      interface: :playground
     end
 end

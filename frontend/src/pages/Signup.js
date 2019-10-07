@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import gql from "graphql-tag";
-import { Mutation } from "react-apollo";
-import { Link } from "react-router-dom";
-import Error from "../components/Error";
-import Loading from "../components/Loading";
-import { GET_CURRENT_USER_QUERY } from "../components/CurrentUser";
+import React, { Component } from 'react'
+import gql from 'graphql-tag'
+import { Mutation } from 'react-apollo'
+import { Link } from 'react-router-dom'
+import Error from '../components/Error'
+import Loading from '../components/Loading'
+import { GET_CURRENT_USER_QUERY } from '../components/CurrentUser'
 
 const SIGNUP_MUTATION = gql`
   mutation SignUp($username: String!, $email: String!, $password: String!) {
@@ -15,40 +15,40 @@ const SIGNUP_MUTATION = gql`
       }
     }
   }
-`;
+`
 
 class Signup extends Component {
   state = {
-    username: "",
-    email: "",
-    password: ""
-  };
+    username: '',
+    email: '',
+    password: '',
+  }
 
   handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+    const { name, value } = event.target
+    this.setState({ [name]: value })
+  }
 
   isFormValid = event => {
     return (
       this.state.username.length > 0 &&
       this.state.email.length > 0 &&
       this.state.password.length > 0
-    );
-  };
+    )
+  }
 
   handleCompleted = data => {
-    localStorage.setItem("auth-token", data.signup.token);
+    localStorage.setItem('auth-token', data.signup.token)
 
-    this.props.history.push("/");
-  };
+    this.props.history.push('/')
+  }
 
   handleUpdate = (cache, { data }) => {
     cache.writeQuery({
       query: GET_CURRENT_USER_QUERY,
-      data: { me: data.signup.user }
-    });
-  };
+      data: { me: data.signup.user },
+    })
+  }
 
   render() {
     return (
@@ -58,13 +58,13 @@ class Signup extends Component {
         onCompleted={this.handleCompleted}
         update={this.handleUpdate}>
         {(signup, { loading, error }) => {
-          if (loading) return <Loading />;
+          if (loading) return <Loading />
           return (
             <form
               className="signup"
               onSubmit={e => {
-                e.preventDefault();
-                signup();
+                e.preventDefault()
+                signup()
               }}>
               <h2>Sign Up</h2>
               <h3>
@@ -105,11 +105,11 @@ class Signup extends Component {
                 </button>
               </fieldset>
             </form>
-          );
+          )
         }}
       </Mutation>
-    );
+    )
   }
 }
 
-export default Signup;
+export default Signup

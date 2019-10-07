@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { formatCurrency } from "../lib/helpers";
-import FeatureList from "./FeatureList";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { formatCurrency } from '../lib/helpers'
+import FeatureList from './FeatureList'
 
 const PlaceDetails = ({ place }) => (
   <>
@@ -22,10 +22,10 @@ const PlaceDetails = ({ place }) => (
       </div>
     </div>
   </>
-);
+)
 
 PlaceDetails.propTypes = {
-  place: PropTypes.object.isRequired
-};
+  place: PropTypes.object.isRequired,
+}
 
-export default PlaceDetails;
+export default PlaceDetails

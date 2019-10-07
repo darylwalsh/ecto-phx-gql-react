@@ -1,76 +1,76 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import dateFnsFormat from "date-fns/format";
-import dateFnsParse from "date-fns/parse";
-import { differenceInMonths, parseISO } from "date-fns";
-import { DateUtils } from "react-day-picker";
-import DayPickerInput from "react-day-picker/DayPickerInput";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import dateFnsFormat from 'date-fns/format'
+import dateFnsParse from 'date-fns/parse'
+import { differenceInMonths, parseISO } from 'date-fns'
+import { DateUtils } from 'react-day-picker'
+import DayPickerInput from 'react-day-picker/DayPickerInput'
 
 class DateRangeSelector extends Component {
   static propTypes = {
     currentRange: PropTypes.object,
-    onDateRangeChange: PropTypes.func.isRequired
-  };
+    onDateRangeChange: PropTypes.func.isRequired,
+  }
 
   constructor(props) {
-    super(props);
+    super(props)
 
     if (props.currentRange) {
       this.state = {
         from: parseISO(props.currentRange.startDate),
-        to: parseISO(props.currentRange.endDate)
-      };
+        to: parseISO(props.currentRange.endDate),
+      }
     } else {
       this.state = {
         from: undefined,
-        to: undefined
-      };
+        to: undefined,
+      }
     }
   }
 
   handleFromChange = from => {
-    this.setState({ from });
+    this.setState({ from })
 
-    this.notifyOnDateRangeChange(from, this.state.to);
-  };
+    this.notifyOnDateRangeChange(from, this.state.to)
+  }
 
   handleToChange = to => {
-    this.setState({ to }, this.showFromMonth);
+    this.setState({ to }, this.showFromMonth)
 
-    this.notifyOnDateRangeChange(this.state.from, to);
-  };
+    this.notifyOnDateRangeChange(this.state.from, to)
+  }
 
   notifyOnDateRangeChange = (from, to) => {
     if (from && to) {
-      this.props.onDateRangeChange(from, to);
+      this.props.onDateRangeChange(from, to)
     }
-  };
+  }
 
   showFromMonth = () => {
-    const { from, to } = this.state;
-    if (!from) return;
+    const { from, to } = this.state
+    if (!from) return
     if (differenceInMonths(to, from) < 2) {
-      this.to.getDayPicker().showMonth(from);
+      this.to.getDayPicker().showMonth(from)
     }
-  };
+  }
 
   parseDate = (str, format, locale) => {
-    const parsed = dateFnsParse(str, format, { locale });
+    const parsed = dateFnsParse(str, format, { locale })
     if (DateUtils.isDate(parsed)) {
-      return parsed;
+      return parsed
     }
-    return undefined;
-  };
+    return undefined
+  }
 
   formatDate = (date, format, locale) => {
-    return dateFnsFormat(date, format, { locale });
-  };
+    return dateFnsFormat(date, format, { locale })
+  }
 
   render() {
-    const { from, to } = this.state;
-    const modifiers = { start: from, end: to };
+    const { from, to } = this.state
+    const modifiers = { start: from, end: to }
 
-    const FORMAT = "MMMM d";
+    const FORMAT = 'MMMM d'
 
     return (
       <>
@@ -96,7 +96,7 @@ class DateRangeSelector extends Component {
                 onDayClick: () => this.to.getInput().focus(),
                 captionElement: ({ date, localeUtils, locale }) => (
                   <DayPickerCaption date={date} localeUtils={localeUtils} />
-                )
+                ),
               }}
               onDayChange={this.handleFromChange}
             />
@@ -124,7 +124,7 @@ class DateRangeSelector extends Component {
                   numberOfMonths: 2,
                   captionElement: ({ date, localeUtils, locale }) => (
                     <DayPickerCaption date={date} localeUtils={localeUtils} />
-                  )
+                  ),
                 }}
                 onDayChange={this.handleToChange}
               />
@@ -132,12 +132,12 @@ class DateRangeSelector extends Component {
           </span>
         </div>
       </>
-    );
+    )
   }
 }
 
 function DayPickerCaption({ date, localeUtils, locale }) {
-  const months = localeUtils.getMonths();
+  const months = localeUtils.getMonths()
 
   return (
     <div className="DayPicker-Caption">
@@ -145,8 +145,8 @@ function DayPickerCaption({ date, localeUtils, locale }) {
         ? `${months[date.getMonth()]}`
         : localeUtils.formatMonthTitle(date, locale)}
     </div>
-  );
+  )
 }
 
-export default DateRangeSelector;
-export { DayPickerCaption };
+export default DateRangeSelector
+export { DayPickerCaption }

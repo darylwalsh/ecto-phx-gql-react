@@ -1,10 +1,10 @@
-import React from "react";
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
-import Error from "../components/Error";
-import Loading from "../components/Loading";
-import Booking from "../components/Booking";
-import RequireSignIn from "../components/RequireSignIn";
+import React from 'react'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
+import Error from '../components/Error'
+import Loading from '../components/Loading'
+import Booking from '../components/Booking'
+import RequireSignIn from '../components/RequireSignIn'
 
 const GET_MY_BOOKINGS_QUERY = gql`
   query GetMyBookings {
@@ -25,14 +25,14 @@ const GET_MY_BOOKINGS_QUERY = gql`
       }
     }
   }
-`;
+`
 
 const MyBookings = () => (
   <RequireSignIn>
     <Query query={GET_MY_BOOKINGS_QUERY}>
       {({ data, loading, error }) => {
-        if (loading) return <Loading />;
-        if (error) return <Error error={error} />;
+        if (loading) return <Loading />
+        if (error) return <Error error={error} />
 
         return (
           <div className="bookings">
@@ -41,11 +41,11 @@ const MyBookings = () => (
               <Booking key={booking.id} booking={booking} />
             ))}
           </div>
-        );
+        )
       }}
     </Query>
   </RequireSignIn>
-);
+)
 
-export default MyBookings;
-export { GET_MY_BOOKINGS_QUERY };
+export default MyBookings
+export { GET_MY_BOOKINGS_QUERY }
