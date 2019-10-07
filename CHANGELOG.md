@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/daryl-walsh/ecto-phx-gql-react/compare/v0.1.4...v0.1.5) (2019-10-07)
+
+
+### Features
+
+* **react:** add react frontend ([43a6913](https://github.com/daryl-walsh/ecto-phx-gql-react/commit/43a6913))
+
 ### [0.1.4](https://dmw///compare/v0.1.3...v0.1.4) (2019-10-07)
 
 

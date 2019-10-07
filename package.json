@@ -1,6 +1,6 @@
 {
   "name": "ecto-phx-gql-react-fork",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "react elixir graphql",
   "main": "index.js",
   "scripts": {
