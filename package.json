@@ -19,7 +19,7 @@
     "prepublishOnly": "npm run ci:validate && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "git@dmw:daryl-walsh/ecto-phx-gql-react.git",
+  "repository": "git@github.com:daryl-walsh/ecto-phx-gql-react.git",
   "keywords": [
     "react",
     "elixir",
