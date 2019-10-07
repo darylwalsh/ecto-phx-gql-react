@@ -1,0 +1,92 @@
+{
+  "name": "ecto-phx-gql-react-fork",
+  "version": "0.1.1",
+  "description": "react elixir graphql",
+  "main": "index.js",
+  "scripts": {
+    "commit": "git-cz",
+    "build": "...",
+    "lint": "eslint src/**",
+    "styleguide:build": "...",
+    "prettier:check": "prettier --check 'frontend/src/**/*.{js,ts,tsx,js,mdx}'",
+    "validate": "run-s test lint prettier:check",
+    "prerelease": "git-authors-cli && git add .",
+    "release": "standard-version -a",
+    "postrelease": "run-s release:*",
+    "release:tags": "git push --follow-tags origin master",
+    "release:github": "conventional-github-releaser -p angular",
+    "ci:validate": "rm -rf node_modules && npm ci && npm run validate",
+    "prepublishOnly": "npm run ci:validate && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@dmw:daryl-walsh/ecto-phx-gql-react.git"
+  },
+  "keywords": [
+    "react",
+    "elixir",
+    "graphql"
+  ],
+  "author": "Daryl",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "babel-eslint": "^10.0.3",
+    "chalk": "^2.4.2",
+    "commitizen": "^4.0.3",
+    "conventional-changelog-cli": "^2.0.23",
+    "conventional-github-releaser": "^3.1.3",
+    "cz-adapter-eslint": "^0.3.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-eslint-comments": "^3.1.2",
+    "eslint-plugin-eslint-plugin": "^2.1.0",
+    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "eslint-utils": "^1.4.2",
+    "git-authors-cli": "^1.0.18",
+    "husky": "^3.0.8",
+    "lint-staged": "^9.4.1",
+    "node-fetch": "^2.6.0",
+    "now": "^16.1.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "randomstring": "^1.1.5",
+    "rimraf": "^3.0.0",
+    "standard-version": "^7.0.0",
+    "webpack": "^4.39.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "frontend/src/**/*.mdx": [
+      "prettier --write",
+      "git add"
+    ],
+    "frontend/src/**/*.{js,jsx,css,ts,tsx,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "contributors": [
+    "Daryl <daryl@blpc.us>"
+  ]
+}

@@ -45,7 +45,7 @@ defmodule GetawaysWeb.Resolvers.Vacation do
     else
       {
         :error,
-        message: "Hey, that's not your booking!"
+        message: "Not authorized to modify this booking"
       }
     end
   end

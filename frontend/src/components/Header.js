@@ -1,7 +1,7 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import CurrentUser from "../components/CurrentUser";
-import Signout from "./Signout";
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import CurrentUser from '../components/CurrentUser'
+import Signout from './Signout'
 
 const Header = () => (
   <CurrentUser>
@@ -49,6 +49,6 @@ const Header = () => (
       </header>
     )}
   </CurrentUser>
-);
+)
 
-export default Header;
+export default Header

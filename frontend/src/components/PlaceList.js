@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import PlaceCard from "../components/PlaceCard";
-import NoData from "./NoData";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import PlaceCard from '../components/PlaceCard'
+import NoData from './NoData'
 
 class PlaceList extends Component {
   static propTypes = {
-    places: PropTypes.array.isRequired
-  };
+    places: PropTypes.array.isRequired,
+  }
 
   render() {
-    const { places } = this.props;
+    const { places } = this.props
 
-    if (places.length === 0) return <NoData />;
+    if (places.length === 0) return <NoData />
 
     return (
       <div className="places">
@@ -19,8 +19,8 @@ class PlaceList extends Component {
           <PlaceCard key={place.id} place={place} />
         ))}
       </div>
-    );
+    )
   }
 }
 
-export default PlaceList;
+export default PlaceList

@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
 // Render runtime errors, including GraphQL errors and network errors.
 //
@@ -7,16 +7,16 @@ import PropTypes from "prop-types";
 // 'QueryResult' object that has 'graphQLErrors' and 'networkError' properties.
 
 const Error = ({ error }) => {
-  if (!error || !error.message) return null;
+  if (!error || !error.message) return null
 
   const isNetworkError =
     error.networkError &&
     error.networkError.message &&
-    error.networkError.statusCode;
+    error.networkError.statusCode
 
-  const hasGraphQLErrors = error.graphQLErrors && error.graphQLErrors.length;
+  const hasGraphQLErrors = error.graphQLErrors && error.graphQLErrors.length
 
-  let errorMessage;
+  let errorMessage
 
   if (isNetworkError) {
     if (error.networkError.statusCode === 404) {
@@ -24,7 +24,7 @@ const Error = ({ error }) => {
         <h3>
           <code>404: Not Found</code>
         </h3>
-      );
+      )
     } else {
       errorMessage = (
         <>
@@ -33,7 +33,7 @@ const Error = ({ error }) => {
             {error.networkError.statusCode}: {error.networkError.message}
           </code>
         </>
-      );
+      )
     }
   } else if (hasGraphQLErrors) {
     errorMessage = (
@@ -55,25 +55,25 @@ const Error = ({ error }) => {
           ))}
         </ul>
       </>
-    );
+    )
   } else {
     errorMessage = (
       <>
         <h3>Whoops!</h3>
         <p>{error.message}</p>
       </>
-    );
+    )
   }
 
-  return <div className="errors">{errorMessage}</div>;
-};
+  return <div className="errors">{errorMessage}</div>
+}
 
 Error.propTypes = {
-  error: PropTypes.object
-};
+  error: PropTypes.object,
+}
 
 Error.defaultProps = {
-  error: {}
-};
+  error: {},
+}
 
-export default Error;
+export default Error

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import gql from "graphql-tag";
-import PropTypes from "prop-types";
-import { Mutation } from "react-apollo";
-import { Link } from "react-router-dom";
-import { formatMonthDD, totalNights, formatCurrency } from "../lib/helpers";
+import React, { Component } from 'react'
+import gql from 'graphql-tag'
+import PropTypes from 'prop-types'
+import { Mutation } from 'react-apollo'
+import { Link } from 'react-router-dom'
+import { formatMonthDD, totalNights, formatCurrency } from '../lib/helpers'
 
 const CANCEL_BOOKING_MUTATION = gql`
   mutation CancelBooking($bookingId: Int!) {
@@ -12,19 +12,19 @@ const CANCEL_BOOKING_MUTATION = gql`
       state
     }
   }
-`;
+`
 
 class Booking extends Component {
   static propTypes = {
-    booking: PropTypes.object.isRequired
-  };
+    booking: PropTypes.object.isRequired,
+  }
 
   isReserved = () => {
-    return this.props.booking.state === "reserved";
-  };
+    return this.props.booking.state === 'reserved'
+  }
 
   render() {
-    const { booking } = this.props;
+    const { booking } = this.props
 
     return (
       <div className="booking" key={booking.id}>
@@ -48,7 +48,7 @@ class Booking extends Component {
               </dl>
             </div>
             <div className="status">
-              <span className={"state " + booking.state}>{booking.state}</span>
+              <span className={'state ' + booking.state}>{booking.state}</span>
               {this.isReserved() && (
                 <Mutation
                   mutation={CANCEL_BOOKING_MUTATION}
@@ -60,12 +60,12 @@ class Booking extends Component {
           </div>
         </div>
         <div className="footer">
-          {totalNights(booking.startDate, booking.endDate)} nights &bull;{" "}
+          {totalNights(booking.startDate, booking.endDate)} nights &bull;{' '}
           {formatCurrency(booking.totalPrice)}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Booking;
+export default Booking

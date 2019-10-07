@@ -1,6 +1,6 @@
-import React from "react";
-import SigninForm from "../components/SigninForm";
-import CurrentUser from "../components/CurrentUser";
+import React from 'react'
+import SigninForm from '../components/SigninForm'
+import CurrentUser from '../components/CurrentUser'
 
 const RequireSignIn = props => (
   <CurrentUser>
@@ -11,11 +11,11 @@ const RequireSignIn = props => (
             <p className="warning">Please sign in first...</p>
             <SigninForm />
           </>
-        );
+        )
       }
-      return props.children;
+      return props.children
     }}
   </CurrentUser>
-);
+)
 
-export default RequireSignIn;
+export default RequireSignIn

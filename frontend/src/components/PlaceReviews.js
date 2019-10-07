@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import RatingSelector from "./custom-inputs/RatingSelector";
-import CreateReview from "../components/CreateReview";
-import CurrentUser from "./CurrentUser";
-import { distanceInWordsFromNow } from "../lib/helpers";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import RatingSelector from './custom-inputs/RatingSelector'
+import CreateReview from '../components/CreateReview'
+import CurrentUser from './CurrentUser'
+import { distanceInWordsFromNow } from '../lib/helpers'
 
 const PlaceReviews = ({ place }) => (
   <>
@@ -48,10 +48,10 @@ const PlaceReviews = ({ place }) => (
       )}
     </CurrentUser>
   </>
-);
+)
 
 PlaceReviews.propTypes = {
-  place: PropTypes.object.isRequired
-};
+  place: PropTypes.object.isRequired,
+}
 
-export default PlaceReviews;
+export default PlaceReviews

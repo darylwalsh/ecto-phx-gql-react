@@ -1,0 +1,42 @@
+;.editorconfig
+
+root = true
+
+[**.js]
+; Javascript interpreter to be invoked by default 'node'
+bin = node
+e4x = true
+indent_style = space
+indent_size = 2
+tab_width = 2
+trim_trailing_whitespace = true
+
+[**.jsx]
+bin = node
+e4x = true
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+
+[**.css]
+path=/home/barko187/.nvm/versions/node/v8.11.4/bin/css-beautify
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+[**.html]
+; Using special comments
+; And such comments or apply only in global configuration
+; So it's best to avoid them
+indent_style = space
+indent_size = 2
+tab_width = 2
+# Unix-style newlines with a newline ending every file
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+insert_final_newline = true
+max_line_length = 80
