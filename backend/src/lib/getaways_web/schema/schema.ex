@@ -13,6 +13,7 @@ defmodule GetawaysWeb.Schema.Schema do
     field :places, list_of(:place) do
       arg :filter, :place_filter
       arg :limit, :integer
+      arg :offset, :integer
       arg :order, type: :sort_order, default_value: :asc
       resolve &Resolvers.Vacation.places/3
     end
