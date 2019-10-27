@@ -64,4 +64,8 @@ config :reactolatry, Reactolatry.Repo,
   hostname: System.get_env("DB_HOST") || "${DB_HOST}",
   pool_size: 10,
   log: false
- 
+
+config :peerage,
+  via: Peerage.Via.List,
+  node_list: [:"reactolatry@127.0.0.1"],
+  log_results: false

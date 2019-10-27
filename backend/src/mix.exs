@@ -4,7 +4,7 @@ defmodule Reactolatry.MixProject do
   def project do
     [
       app: :reactolatry,
-      version: "0.1.1",
+      version: "0.1.2",
       elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -26,7 +26,7 @@ defmodule Reactolatry.MixProject do
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(:dev),  do: ["lib", "dev/support"]
+  defp elixirc_paths(:dev), do: ["lib", "dev/support"]
   defp elixirc_paths(_), do: ["lib"]
 
   # Specifies your project dependencies.
