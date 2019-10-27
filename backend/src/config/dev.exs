@@ -58,8 +58,10 @@ config :phoenix, :plug_init_mode, :runtime
 # Configure your database
 config :getaways, Getaways.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("DB_USER") || "${DB_USER}",
+  password: System.get_env("DB_PASS") || "${DB_PASS}",
   database: "getaways_dev",
-  hostname: "db",
-  pool_size: 10
+  hostname: System.get_env("DB_HOST") || "${DB_HOST}",
+  pool_size: 10,
+  log: false
+ 
