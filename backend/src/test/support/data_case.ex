@@ -1,4 +1,4 @@
-defmodule Getaways.DataCase do
+defmodule Reactolatry.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,21 +16,21 @@ defmodule Getaways.DataCase do
 
   using do
     quote do
-      alias Getaways.Repo
+      alias Reactolatry.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Getaways.DataCase
-      import Getaways.TestHelpers
+      import Reactolatry.DataCase
+      import Reactolatry.TestHelpers
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Getaways.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Reactolatry.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Getaways.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Reactolatry.Repo, {:shared, self()})
     end
 
     :ok

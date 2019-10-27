@@ -1,11 +1,11 @@
-defmodule Getaways.MixProject do
+defmodule Reactolatry.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :getaways,
-      version: "0.1.0",
-      elixir: "~> 1.5",
+      app: :reactolatry,
+      version: "0.1.1",
+      elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -19,8 +19,8 @@ defmodule Getaways.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Getaways.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      mod: {Reactolatry.Application, []},
+      extra_applications: [:logger, :runtime_tools, :peerage]
     ]
   end
 
@@ -34,7 +34,7 @@ defmodule Getaways.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.4.3"},
+      {:phoenix, "~> 1.4.10"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_ecto, "~> 4.0"},
       {:ecto_sql, "~> 3.0"},
@@ -48,7 +48,8 @@ defmodule Getaways.MixProject do
       {:pbkdf2_elixir, "~> 1.0"},
       {:cors_plug, "~> 2.0"},
       {:dataloader, "~> 1.0.6"},
-      {:distillery, "~> 2.1"}
+      {:distillery, "~> 2.1"},
+      {:peerage, "~> 1.0"}
     ]
   end
 

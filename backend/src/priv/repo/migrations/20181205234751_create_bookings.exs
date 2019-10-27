@@ -1,4 +1,4 @@
-defmodule Getaways.Repo.Migrations.CreateBookings do
+defmodule Reactolatry.Repo.Migrations.CreateBookings do
   use Ecto.Migration
 
   def change do

@@ -1,4 +1,4 @@
-defmodule GetawaysWeb.ChannelCase do
+defmodule ReactolatryWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule GetawaysWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint GetawaysWeb.Endpoint
+      @endpoint ReactolatryWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Getaways.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Reactolatry.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Getaways.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Reactolatry.Repo, {:shared, self()})
     end
 
     :ok

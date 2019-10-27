@@ -3,9 +3,9 @@
 #     mix run priv/repo/seeds.exs
 #
 
-alias Getaways.Repo
-alias Getaways.Vacation.{Place, Booking, Review}
-alias Getaways.Accounts.User
+alias Reactolatry.Repo
+alias Reactolatry.Vacation.{Place, Booking, Review}
+alias Reactolatry.Accounts.User
 
 #
 # USERS
@@ -42,7 +42,7 @@ beachbum =
 # PLACES
 #
 
-images_url = "#{GetawaysWeb.Endpoint.url}/images"
+images_url = "#{ReactolatryWeb.Endpoint.url}/images"
 
 %Place{
   name: "Sand Castle",
