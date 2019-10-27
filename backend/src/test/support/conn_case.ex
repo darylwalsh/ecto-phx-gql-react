@@ -1,4 +1,4 @@
-defmodule GetawaysWeb.ConnCase do
+defmodule ReactolatryWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,24 +19,24 @@ defmodule GetawaysWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      alias GetawaysWeb.Router.Helpers, as: Routes
-      import Getaways.TestHelpers
+      alias ReactolatryWeb.Router.Helpers, as: Routes
+      import Reactolatry.TestHelpers
 
       # The default endpoint for testing
-      @endpoint GetawaysWeb.Endpoint
+      @endpoint ReactolatryWeb.Endpoint
 
       defp auth_user(conn, user) do
-        token = GetawaysWeb.AuthToken.sign(user)
+        token = ReactolatryWeb.AuthToken.sign(user)
         put_req_header(conn, "authorization", "Bearer #{token}")
       end
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Getaways.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Reactolatry.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Getaways.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Reactolatry.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

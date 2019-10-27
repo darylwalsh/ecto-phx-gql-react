@@ -1,4 +1,4 @@
-defmodule GetawaysWeb.SubscriptionCase do
+defmodule ReactolatryWeb.SubscriptionCase do
   @moduledoc """
   This module defines the test case to be used by
   subscription tests.
@@ -11,13 +11,13 @@ defmodule GetawaysWeb.SubscriptionCase do
       # Import conveniences for testing with channels
       use Phoenix.ConnTest
 
-      use GetawaysWeb.ChannelCase
+      use ReactolatryWeb.ChannelCase
       use Absinthe.Phoenix.SubscriptionTest,
-        schema: GetawaysWeb.Schema.Schema
-      import Getaways.TestHelpers
+        schema: ReactolatryWeb.Schema.Schema
+      import Reactolatry.TestHelpers
 
       defp auth_user(conn, user) do
-        token = GetawaysWeb.AuthToken.sign(user)
+        token = ReactolatryWeb.AuthToken.sign(user)
         put_req_header(conn, "authorization", "Bearer #{token}")
       end
 
@@ -25,7 +25,7 @@ defmodule GetawaysWeb.SubscriptionCase do
         places_fixture()
 
         {:ok, socket} =
-            Phoenix.ChannelTest.connect(GetawaysWeb.UserSocket, %{})
+            Phoenix.ChannelTest.connect(ReactolatryWeb.UserSocket, %{})
         {:ok, socket} =
             Absinthe.Phoenix.SubscriptionTest.join_absinthe(socket)
 

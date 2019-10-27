@@ -4,7 +4,7 @@ config :pbkdf2_elixir, :rounds, 1
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :getaways, GetawaysWeb.Endpoint,
+config :reactolatry, ReactolatryWeb.Endpoint,
   http: [port: 4002],
   server: false
 
@@ -12,9 +12,9 @@ config :getaways, GetawaysWeb.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :getaways, Getaways.Repo,
+config :reactolatry, Reactolatry.Repo,
   username: "postgres",
   password: "postgres",
-  database: "getaways_test",
+  database: "reactolatry_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

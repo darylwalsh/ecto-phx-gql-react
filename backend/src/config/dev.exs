@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :getaways, GetawaysWeb.Endpoint,
+config :reactolatry, ReactolatryWeb.Endpoint,
   http: [port: 4000],
   debug_errors: false,
   code_reloader: true,
@@ -56,11 +56,11 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
-config :getaways, Getaways.Repo,
+config :reactolatry, Reactolatry.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: System.get_env("DB_USER") || "${DB_USER}",
   password: System.get_env("DB_PASS") || "${DB_PASS}",
-  database: "getaways_dev",
+  database: "reactolatry_dev",
   hostname: System.get_env("DB_HOST") || "${DB_HOST}",
   pool_size: 10,
   log: false

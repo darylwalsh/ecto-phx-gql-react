@@ -1,4 +1,4 @@
-defmodule Getaways.Repo.Migrations.CreatePlaces do
+defmodule Reactolatry.Repo.Migrations.CreatePlaces do
   use Ecto.Migration
 
   def change do

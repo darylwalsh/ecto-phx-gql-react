@@ -1,15 +1,15 @@
-defmodule Getaways.TestHelpers do
-  alias Getaways.Repo
+defmodule Reactolatry.TestHelpers do
+  alias Reactolatry.Repo
 
-  alias Getaways.Vacation.{Place, Booking, Review}
-  alias Getaways.Accounts.User
+  alias Reactolatry.Vacation.{Place, Booking, Review}
+  alias Reactolatry.Accounts.User
 
   def user(username) do
-    Getaways.Repo.get_by!(User, username: username)
+    Reactolatry.Repo.get_by!(User, username: username)
   end
 
   def place(name) do
-    Getaways.Repo.get_by!(Place, name: name)
+    Reactolatry.Repo.get_by!(Place, name: name)
   end
 
   def user_fixture(attrs \\ %{}) do

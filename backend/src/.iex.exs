@@ -1,8 +1,8 @@
-alias Getaways.Vacation.{Place, Booking, Review}
-alias Getaways.Accounts.User
+alias Reactolatry.Vacation.{Place, Booking, Review}
+alias Reactolatry.Accounts.User
 
-alias Getaways.Repo
-alias Getaways.Vacation
-alias Getaways.Accounts
+alias Reactolatry.Repo
+alias Reactolatry.Vacation
+alias Reactolatry.Accounts
 
 import Ecto.Query

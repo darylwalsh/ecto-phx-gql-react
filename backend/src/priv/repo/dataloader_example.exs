@@ -1,4 +1,4 @@
-alias Getaways.Vacation
+alias Reactolatry.Vacation
 
 # Fetch 3 places we want to get the bookings for:
 
@@ -10,11 +10,11 @@ loader = Dataloader.new
 
 # Create a source which is the database repo:
 
-source = Dataloader.Ecto.new(Getaways.Repo)
+source = Dataloader.Ecto.new(Reactolatry.Repo)
 
 # Add the source to the data loader. The name of the source is
 # arbitrary, but typically named after a Phoenix context module.
-# In this case, the name is `Getaways.Vacation`.
+# In this case, the name is `Reactolatry.Vacation`.
 
 loader = loader |> Dataloader.add_source(Vacation, source)
 
