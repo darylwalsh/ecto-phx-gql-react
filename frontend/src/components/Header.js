@@ -9,8 +9,8 @@ const Header = () => (
       <header>
         <nav>
           <NavLink className="logo" to="/">
-            <span className="head">Get</span>
-            <span className="tail">/Aways</span>
+            <span className="head">REACT</span>
+            <span className="tail">/OLATRY</span>
           </NavLink>
           <ul>
             <li>

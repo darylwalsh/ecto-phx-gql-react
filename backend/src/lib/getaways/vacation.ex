@@ -41,6 +41,9 @@ defmodule Getaways.Vacation do
       {:limit, limit}, query ->
         from p in query, limit: ^limit
 
+      {:offset, offset}, query ->
+        from p in query, offset: ^offset
+
       {:filter, filters}, query ->
         filter_with(filters, query)
 

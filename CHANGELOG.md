@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/daryl-walsh/ecto-phx-gql-react/compare/v0.1.7...v0.1.8) (2019-10-27)
+
+
+### Features
+
+* **docker:** add docker frontend ([94a82b9](https://github.com/daryl-walsh/ecto-phx-gql-react/commit/94a82b9))
+
+### [0.1.7](https://github.com/daryl-walsh/ecto-phx-gql-react/compare/v0.1.6...v0.1.7) (2019-10-12)
+
+
+### Features
+
+* **pagination:** add home page see more ([db61a8c](https://github.com/daryl-walsh/ecto-phx-gql-react/commit/db61a8c))
+
 ### [0.1.6](https://github.com/daryl-walsh/ecto-phx-gql-react/compare/v0.1.5...v0.1.6) (2019-10-07)
 
 ### [0.1.5](https://github.com/daryl-walsh/ecto-phx-gql-react/compare/v0.1.4...v0.1.5) (2019-10-07)
