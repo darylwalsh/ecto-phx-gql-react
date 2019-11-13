@@ -20,6 +20,7 @@ defmodule Reactolatry.MixProject do
   def application do
     [
       mod: {Reactolatry.Application, []},
+      start_phases: [{:migrate, []}],
       extra_applications: [:logger, :runtime_tools, :peerage]
     ]
   end

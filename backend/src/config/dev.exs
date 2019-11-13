@@ -60,7 +60,7 @@ config :reactolatry, Reactolatry.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: System.get_env("DB_USER") || "${DB_USER}",
   password: System.get_env("DB_PASS") || "${DB_PASS}",
-  database: "reactolatry_dev",
+  database: "reactolatry_prod",
   hostname: System.get_env("DB_HOST") || "${DB_HOST}",
   pool_size: 10,
   log: false

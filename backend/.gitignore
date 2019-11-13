@@ -96,3 +96,12 @@ env
 users/htmlcov/
 .env
 XDG_CACHE_HOME/*
+
+.notes.md
+.commands.txt
+.notes.md 
+.pgpass.txt 
+.release-cookie.txt 
+.secretkey.txt 
+.env
+.dburl.txt

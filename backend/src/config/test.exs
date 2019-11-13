@@ -13,8 +13,8 @@ config :logger, level: :warn
 
 # Configure your database
 config :reactolatry, Reactolatry.Repo,
-  username: "postgres",
-  password: "postgres",
+ username: System.get_env("DB_USER") || "${DB_USER}",
+  password: System.get_env("DB_PASS") || "${DB_PASS}",
   database: "reactolatry_test",
-  hostname: "localhost",
+  hostname: System.get_env("DB_HOST") || "${DB_HOST}",
   pool: Ecto.Adapters.SQL.Sandbox

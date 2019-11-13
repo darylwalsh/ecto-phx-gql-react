@@ -61,3 +61,11 @@ npm-debug.log
 
 .secretkey.txt
 .env
+# Temporary env files
+/public/env-config.js
+env-config.js
+.notes.md 
+.pgpass.txt 
+.release-cookie.txt 
+.secretkey.txt 
+.env

@@ -8,16 +8,18 @@
 use Mix.Config
 
 config :cors_plug,
-  origin: ["http://localhost:3000"],
+  origin: ["*"],
   max_age: 86400,
   methods: ["GET", "POST"]
 
 config :reactolatry,
-  ecto_repos: [Reactolatry.Repo]
+  ecto_repos: [Reactolatry.Repo],
+  adapter: Ecto.Adapters.Postgres,
+  pool_size: 10
 
 # Configures the endpoint
 config :reactolatry, ReactolatryWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "reactolatry.io"],
   secret_key_base: "r/KECNh6PcQMEwqy78veF/hGvvy+MAiOa9fL2tbURvl4D4K3FZiF4p8zwesH9+dW",
   render_errors: [view: ReactolatryWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: Reactolatry.PubSub, adapter: Phoenix.PubSub.PG2]

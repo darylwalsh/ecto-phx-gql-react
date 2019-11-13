@@ -4,6 +4,9 @@ service_name = System.fetch_env!("SERVICE_NAME")
 db_url = System.fetch_env!("DB_URL")
 secret_key_base = System.fetch_env!("SECRET_KEY_BASE")
 port = System.fetch_env!("PORT")
+# cors_origin = System.fetch_env!("CORS_ORIGIN")
+
+#config :cors_plug, origin: ["*"]
 
 config :reactolatry, Reactolatry.Repo, url: db_url
 

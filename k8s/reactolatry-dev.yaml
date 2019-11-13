@@ -5,7 +5,7 @@ metadata:
   labels:
     app: reactolatry
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: reactolatry
@@ -22,11 +22,17 @@ spec:
     spec:
       containers:
         - name: reactolatry
-          image: darylwalsh/reactolatryfe:0.1.4
+          image: darylwalsh/reactolatrydev:0.1.1
           imagePullPolicy: IfNotPresent
           env:
             - name: APP_HOST
               value: reactolatry
+            - name: DB_USER
+              value: postgres
+            - name: DB_PASS
+              value: postgres
+            - name: DB_HOST
+              value: db
             - name: HOSTNAME
               valueFrom:
                 fieldRef:
