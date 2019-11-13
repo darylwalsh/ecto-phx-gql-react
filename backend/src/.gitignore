@@ -43,3 +43,14 @@ npm-debug.log
 # secrets files as long as you replace their contents by environment
 # variables.
 /config/*.secret.exs
+
+.notes.md 
+.pgpass.txt 
+.release-cookie.txt 
+.secretkey.txt 
+.env
+
+.dburl.txt
+Dockerfile
+Dockerfile_dev
+erl_crash.dump

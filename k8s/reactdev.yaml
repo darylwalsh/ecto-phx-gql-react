@@ -1,0 +1,30 @@
+apiVersion: apps/v1 # API version
+kind: Deployment # Type of kubernetes resource
+metadata:
+  name: reactolatry-app-client # Name of the kubernetes resource
+spec:
+  replicas: 1 # No of replicas/pods to run
+  selector:
+    matchLabels: # This deployment applies to Pods matching the specified labels
+      app: reactolatry-app-client
+  template: # Template for creating the Pods in this deployment
+    metadata:
+      labels: # Labels that will be applied to all the Pods in this deployment
+        app: reactolatry-app-client
+    spec: # Spec for the containers that will run inside the Pods
+      containers:
+        - name: reactolatry-app-client
+          image: darylwalsh/reactolatrydevreact:0.1.1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: REACT_APP_HTTP_ENDPOINT
+              value: http://reactolatry:4000/api
+            - name: REACT_APP_WS_ENDPOINT
+              value: ws://reactolatry:4000/socket
+          ports:
+            - name: http
+              containerPort: 80 # Should match the Port that the container listens on
+          resources:
+            limits:
+              cpu: 0.2
+              memory: '10Mi'

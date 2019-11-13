@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactolatry-deployment
+  labels:
+    app: reactolatry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactolatry
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 34%
+      maxUnavailable: 34%
+  template:
+    metadata:
+      name: reactolatry
+      labels:
+        app: reactolatry
+    spec:
+      containers:
+        - name: reactolatry
+          image: darylwalsh/reactolatrydev:0.1.1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: APP_HOST
+              value: reactolatry
+            - name: DB_USER
+              value: postgres
+            - name: DB_PASS
+              value: postgres
+            - name: DB_HOST
+              value: db
+            - name: HOSTNAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: PORT
+              value: '4000'
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: reactolatrysecrets
+                  key: db_url
+            - name: SECRET_KEY_BASE
+              valueFrom:
+                secretKeyRef:
+                  name: reactolatrysecrets
+                  key: secret_key_base
+            - name: RELEASE_COOKIE
+              valueFrom:
+                secretKeyRef:
+                  name: reactolatrysecrets
+                  key: release_cookie
+            - name: SERVICE_NAME
+              value: reactolatry.default.svc.cluster.local
+          resources: {}
+          securityContext:
+            privileged: false
+            procMount: Default
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

@@ -4,3 +4,4 @@ build/
 .docz/
 /.vscode
 /.git
+k8s/reactolatry-secrets.yaml

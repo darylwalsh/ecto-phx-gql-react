@@ -8,9 +8,9 @@ import * as AbsintheSocket from '@absinthe/socket'
 import { createAbsintheSocketLink } from '@absinthe/socket-apollo-link'
 import { Socket as PhoenixSocket } from 'phoenix'
 
-const HTTP_ENDPOINT = 'http://localhost:4000/api'
+const HTTP_ENDPOINT = window._env_.REACT_APP_HTTP_ENDPOINT
 
-const WS_ENDPOINT = 'ws://localhost:4000/socket'
+const WS_ENDPOINT = window._env_.REACT_APP_WS_ENDPOINT
 
 // Create an HTTP link to the Phoenix app's HTTP endpoint URL.
 const httpLink = createHttpLink({

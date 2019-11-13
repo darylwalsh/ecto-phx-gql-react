@@ -97,3 +97,12 @@ users/htmlcov/
 .env
 XDG_CACHE_HOME/*
 .tool-versions
+.postgrexpath.txt
+.notes.md 
+.pgpass.txt 
+.release-cookie.txt 
+.secretkey.txt 
+.env
+k8s/reactolatry-secrets.yaml
+postgres-data/
+postgres-data/*

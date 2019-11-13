@@ -20,7 +20,6 @@ tab_width = 2
 
 
 [**.css]
-path=/home/barko187/.nvm/versions/node/v8.11.4/bin/css-beautify
 indent_style = space
 indent_size = 2
 tab_width = 2

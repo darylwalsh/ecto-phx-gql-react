@@ -21,6 +21,11 @@ defmodule Reactolatry.Application do
     Supervisor.start_link(children, opts)
   end
 
+  def start_phase(:migrate, _, _) do
+    Ecto.Migrator.with_repo(Reactolatry.Repo, &Ecto.Migrator.run(&1, :up, all: true))
+    :ok
+  end
+
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
