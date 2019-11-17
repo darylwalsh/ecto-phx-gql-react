@@ -105,3 +105,12 @@ XDG_CACHE_HOME/*
 .secretkey.txt 
 .env
 .dburl.txt
+
+/src/assets/node_modules
+node_modules/
+node_modules/*
+/node_modules/
+/node_modules/*
+.env
+/postgres-data
+postgres-data/

@@ -58,14 +58,14 @@ config :phoenix, :plug_init_mode, :runtime
 # Configure your database
 config :reactolatry, Reactolatry.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: System.get_env("DB_USER") || "${DB_USER}",
-  password: System.get_env("DB_PASS") || "${DB_PASS}",
-  database: "reactolatry_prod",
-  hostname: System.get_env("DB_HOST") || "${DB_HOST}",
+  username: System.get_env("DB_USER") || "postgres",
+  password: System.get_env("DB_PASS") || "postgres",
+  database: "reactolatry_dev",
+  hostname: System.get_env("DB_HOST") || "db",
   pool_size: 10,
   log: false
 
-config :peerage,
-  via: Peerage.Via.List,
-  node_list: [:"reactolatry@127.0.0.1"],
-  log_results: false
+# config :peerage,
+#   via: Peerage.Via.List,
+#   node_list: [:"reactolatry@127.0.0.1"],
+#   log_results: false

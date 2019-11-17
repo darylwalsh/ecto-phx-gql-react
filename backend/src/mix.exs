@@ -10,7 +10,8 @@ defmodule Reactolatry.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      dialyzer: [plt_add_deps: :transitive]
     ]
   end
 
@@ -20,8 +21,7 @@ defmodule Reactolatry.MixProject do
   def application do
     [
       mod: {Reactolatry.Application, []},
-      start_phases: [{:migrate, []}],
-      extra_applications: [:logger, :runtime_tools, :peerage]
+      extra_applications: [:logger, :runtime_tools]
     ]
   end
 
@@ -50,7 +50,7 @@ defmodule Reactolatry.MixProject do
       {:cors_plug, "~> 2.0"},
       {:dataloader, "~> 1.0.6"},
       {:distillery, "~> 2.1"},
-      {:peerage, "~> 1.0"}
+      {:dialyxir, "~> 0.5.0", only: [:dev], runtime: false}
     ]
   end
 
