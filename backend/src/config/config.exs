@@ -19,7 +19,7 @@ config :reactolatry,
 
 # Configures the endpoint
 config :reactolatry, ReactolatryWeb.Endpoint,
-  url: [host: "reactolatry.io"],
+  url: [host: "localhost"],
   secret_key_base: "r/KECNh6PcQMEwqy78veF/hGvvy+MAiOa9fL2tbURvl4D4K3FZiF4p8zwesH9+dW",
   render_errors: [view: ReactolatryWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: Reactolatry.PubSub, adapter: Phoenix.PubSub.PG2]

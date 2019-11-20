@@ -1,7 +1,8 @@
-FROM elixir:1.9.0
+FROM elixir:1.9.1
+LABEL maintainer="daryl@blpc.us"
 
 RUN mix local.hex --force \
-  && mix archive.install --force hex phx_new 1.4.8 \
+  && mix archive.install --force hex phx_new 1.4.10 \
   && apt-get update \
   && curl -sL https://deb.nodesource.com/setup_10.x | bash \
   && apt-get install -y apt-utils \

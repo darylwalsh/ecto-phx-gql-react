@@ -104,5 +104,12 @@ XDG_CACHE_HOME/*
 .secretkey.txt 
 .env
 k8s/reactolatry-secrets.yaml
-postgres-data/
 postgres-data/*
+node_modules/
+node_modules/*
+/node_modules/
+/node_modules/*
+.env
+/postgres-data
+postgres-data/
+
